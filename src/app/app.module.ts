@@ -8,6 +8,7 @@ import { BaseModule } from './base/base.module';
 import { RouterModule } from '@angular/router';
 import { BookParkingModule } from './page-components/book-parking/book-parking.module';
 import { routing } from 'app/app.routing';
+import { RouteSummaryModule } from './page-components/route-summary/route-summary.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { routing } from 'app/app.routing';
     BrowserModule,
     ClarityModule,
     BookParkingModule,
+    RouteSummaryModule,
     BaseModule
   ],
   providers: [],
