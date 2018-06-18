@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { BookParkingModule } from './page-components/book-parking/book-parking.module';
 import { routing } from 'app/app.routing';
 import { RouteSummaryModule } from './page-components/route-summary/route-summary.module';
+import { AgmCoreModule } from '@agm/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,10 +20,12 @@ import { RouteSummaryModule } from './page-components/route-summary/route-summar
   imports: [
     routing,
     BrowserModule,
+    BrowserAnimationsModule,
     ClarityModule,
     BookParkingModule,
     RouteSummaryModule,
-    BaseModule
+    BaseModule,
+    AgmCoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

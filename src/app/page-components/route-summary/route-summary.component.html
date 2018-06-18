@@ -1,0 +1,67 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+
+<clr-stack-view>
+  <clr-stack-header>Directions</clr-stack-header>
+
+  <clr-stack-block [clrSbExpanded]="true">
+    <clr-stack-label>Walk</clr-stack-label>
+    <clr-stack-content>12:00 - 13:00</clr-stack-content>
+
+    <clr-stack-block>
+      <clr-stack-label>Walk from Street to Street</clr-stack-label>
+      <clr-stack-content>13:00 - 13:05</clr-stack-content>
+    </clr-stack-block>
+
+    <clr-stack-block>
+      <clr-stack-label>Walk from Street to Street</clr-stack-label>
+      <!--<clr-stack-content>Walk from other street to station</clr-stack-content>-->
+    </clr-stack-block>
+  </clr-stack-block>
+
+  <clr-stack-block>
+    <clr-stack-label>Train</clr-stack-label>
+    <clr-stack-content>13:00 - 14:00</clr-stack-content>
+
+    <clr-stack-block>
+      <clr-stack-label>Get train to Blah station</clr-stack-label>
+    </clr-stack-block>
+  </clr-stack-block>
+</clr-stack-view>
+
+<h4>Walk</h4>
+<p>12:00 - 13:00<br/>
+Stadium - Arena Train</p>
+<div class="progress">
+  <progress max="100" value="0" data-displayval="0%"></progress>
+</div>
+
+<h4>Train</h4>
+<p>12:00 - 13:00<br/>
+  Stadium - Arena Train</p>
+<div class="progress danger">
+  <progress max="100" value="3" data-displayval="3%"></progress>
+</div>
+
+<h4>Bike</h4>
+<p>12:00 - 13:00<br/>
+  Stadium - Arena Train</p>
+<div class="progress warning">
+  <progress max="100" value="70" data-displayval="70%"></progress>
+</div>
+
+<h4>Walk</h4>
+<p>12:00 - 13:00<br/>
+  Stadium - Arena Train</p>
+<div class="progress">
+  <progress max="100" value="95" data-displayval="95%"></progress>
+</div>
+
+<h4>Arrival</h4>
+<p>12:00 - 13:00<br/>
+  Stadium - Arena Train</p>
+<div class="progress success">
+  <progress max="100" value="100" data-displayval="100%"></progress>
+</div>
