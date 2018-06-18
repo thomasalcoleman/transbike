@@ -124,7 +124,7 @@
 
             <!-- Time -->
             <div class="form-group">
-              <label for="departDate">Time</label>
+              <label for="departDate">Date</label>
               <label for="departDate"
                      aria-haspopup="true"
                      role="tooltip"
@@ -231,6 +231,14 @@
           </div>
         </div>
         <!-- /Bike -->
+      </div>
+      <div class="card-block" *ngIf="bookingForm.get('bike').value !== ''">
+        <ul>
+          <li *ngIf="bookingForm.get('bike').value === 'ov-fiets'">Bike needs to be returned within 24 hours</li>
+          <li *ngIf="bookingForm.get('bike').value === 'nextbike'">Bike is free float</li>
+          <li *ngIf="bookingForm.get('bike').value === 'ov-fiets'">Rental fee is €3,85 per 24h</li>
+          <li *ngIf="bookingForm.get('bike').value === 'nextbike'">Rental fee is €1,50 per 30m</li>
+        </ul>
       </div>
       <div class="card-footer">
         <button class="btn btn-primary"
