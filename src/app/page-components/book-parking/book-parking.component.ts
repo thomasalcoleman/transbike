@@ -16,6 +16,10 @@ export class BookParkingComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {}
 
   public ngOnInit(): void {
+    this.apiService.getRoute('51.4434187,5.4770454', '51.4434187,5.4770454').subscribe((response) => {
+      console.log(response);
+    });
+
     this.bookingForm = new FormGroup({
       from: new FormControl('', Validators.required),
       to: new FormControl('', Validators.required),

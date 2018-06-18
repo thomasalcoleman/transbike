@@ -2,78 +2,166 @@
     Loading...
 </span>
 
-<form class="form" [formGroup]="bookingForm" (ngSubmit)="onSubmit($event);" [hidden]="isSubmitting">
-  <section class="form-block">
-    <label>Book your journey</label>
-    <!-- Start location -->
-    <div class="form-group">
-      <label for="from">From</label>
-      <label for="from"
-             aria-haspopup="true"
-             role="tooltip"
-             class="tooltip tooltip-validation tooltip-sm"
-             [class.invalid]="bookingForm.get('from').invalid
+<!--<form class="form" [formGroup]="bookingForm" (ngSubmit)="onSubmit($event);" [hidden]="isSubmitting">-->
+  <!--<section class="form-block">-->
+    <!--<label>Book your journey</label>-->
+    <!--&lt;!&ndash; Start location &ndash;&gt;-->
+    <!--<div class="form-group">-->
+      <!--<label for="from">From</label>-->
+      <!--<label for="from"-->
+             <!--aria-haspopup="true"-->
+             <!--role="tooltip"-->
+             <!--class="tooltip tooltip-validation tooltip-sm"-->
+             <!--[class.invalid]="bookingForm.get('from').invalid-->
+                    <!--&& (bookingForm.get('from').dirty || bookingForm.get('from').touched)">-->
+        <!--<input id="from" type="text"-->
+               <!--formControlName="from">-->
+        <!--<span class="tooltip-content">-->
+                    <!--From is required.-->
+                <!--</span>-->
+      <!--</label>-->
+    <!--</div> &lt;!&ndash; /Start location &ndash;&gt;-->
+
+    <!--&lt;!&ndash; To &ndash;&gt;-->
+    <!--<div class="form-group">-->
+      <!--<label for="to">To</label>-->
+      <!--<label for="to"-->
+             <!--aria-haspopup="true"-->
+             <!--role="tooltip"-->
+             <!--class="tooltip tooltip-validation tooltip-sm"-->
+             <!--[class.invalid]="bookingForm.get('to').invalid-->
+                    <!--&& (bookingForm.get('to').dirty || bookingForm.get('to').touched)">-->
+        <!--<input id="to" type="text"-->
+               <!--formControlName="to">-->
+        <!--<span class="tooltip-content">-->
+                    <!--To is required.-->
+                <!--</span>-->
+      <!--</label>-->
+    <!--</div> &lt;!&ndash; /To &ndash;&gt;-->
+
+
+    <!--&lt;!&ndash; Time &ndash;&gt;-->
+    <!--<div class="form-group">-->
+      <!--<label for="time">Time</label>-->
+      <!--<label for="time"-->
+             <!--aria-haspopup="true"-->
+             <!--role="tooltip"-->
+             <!--class="tooltip tooltip-validation tooltip-sm"-->
+             <!--[class.invalid]="bookingForm.get('time').invalid-->
+                    <!--&& (bookingForm.get('time').dirty || bookingForm.get('time').touched)">-->
+        <!--<input id="time" type="time"-->
+               <!--formControlName="time">-->
+        <!--<span class="tooltip-content">-->
+                    <!--Time is required.-->
+                <!--</span>-->
+      <!--</label>-->
+    <!--</div>  &lt;!&ndash; /Destination &ndash;&gt;-->
+
+    <!--&lt;!&ndash; Bike &ndash;&gt;-->
+    <!--<div class="form-group">-->
+      <!--<label for="bike">Bike</label>-->
+      <!--<div class="select">-->
+        <!--<select id="bike" formControlName="bike">-->
+          <!--<option>ov-fiets</option>-->
+          <!--<option>nextbike</option>-->
+          <!--<option>mobike</option>-->
+          <!--<option>donkey</option>-->
+        <!--</select>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /Bike &ndash;&gt;-->
+
+
+    <!--<button class="btn btn-primary"-->
+            <!--type="submit"-->
+            <!--[disabled]="bookingForm.invalid">Book</button>-->
+  <!--</section>-->
+<!--</form>-->
+
+
+<div class="row">
+  <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        Book your journey
+      </div>
+      <div class="card-block">
+        <form class="form" [formGroup]="bookingForm" (ngSubmit)="onSubmit($event);" [hidden]="isSubmitting">
+          <section class="form-block">
+            <!--<label>Book your journey</label>-->
+            <!-- Start location -->
+            <div class="form-group">
+              <label for="from">From</label>
+              <label for="from"
+                     aria-haspopup="true"
+                     role="tooltip"
+                     class="tooltip tooltip-validation tooltip-sm"
+                     [class.invalid]="bookingForm.get('from').invalid
                     && (bookingForm.get('from').dirty || bookingForm.get('from').touched)">
-        <input id="from" type="text"
-               formControlName="from">
-        <span class="tooltip-content">
+                <input id="from" type="text"
+                       formControlName="from">
+                <span class="tooltip-content">
                     From is required.
                 </span>
-      </label>
-    </div> <!-- /Start location -->
+              </label>
+            </div> <!-- /Start location -->
 
-    <!-- To -->
-    <div class="form-group">
-      <label for="to">To</label>
-      <label for="to"
-             aria-haspopup="true"
-             role="tooltip"
-             class="tooltip tooltip-validation tooltip-sm"
-             [class.invalid]="bookingForm.get('to').invalid
+            <!-- To -->
+            <div class="form-group">
+              <label for="to">To</label>
+              <label for="to"
+                     aria-haspopup="true"
+                     role="tooltip"
+                     class="tooltip tooltip-validation tooltip-sm"
+                     [class.invalid]="bookingForm.get('to').invalid
                     && (bookingForm.get('to').dirty || bookingForm.get('to').touched)">
-        <input id="to" type="text"
-               formControlName="to">
-        <span class="tooltip-content">
+                <input id="to" type="text"
+                       formControlName="to">
+                <span class="tooltip-content">
                     To is required.
                 </span>
-      </label>
-    </div> <!-- /To -->
+              </label>
+            </div> <!-- /To -->
 
 
-    <!-- Time -->
-    <div class="form-group">
-      <label for="time">Time</label>
-      <label for="time"
-             aria-haspopup="true"
-             role="tooltip"
-             class="tooltip tooltip-validation tooltip-sm"
-             [class.invalid]="bookingForm.get('time').invalid
+            <!-- Time -->
+            <div class="form-group">
+              <label for="time">Time</label>
+              <label for="time"
+                     aria-haspopup="true"
+                     role="tooltip"
+                     class="tooltip tooltip-validation tooltip-sm"
+                     [class.invalid]="bookingForm.get('time').invalid
                     && (bookingForm.get('time').dirty || bookingForm.get('time').touched)">
-        <input id="time" type="time"
-               formControlName="time">
-        <span class="tooltip-content">
+                <input id="time" type="time"
+                       formControlName="time">
+                <span class="tooltip-content">
                     Time is required.
                 </span>
-      </label>
-    </div>  <!-- /Destination -->
+              </label>
+            </div>  <!-- /Destination -->
 
-    <!-- Bike -->
-    <div class="form-group">
-      <label for="bike">Bike</label>
-      <div class="select">
-        <select id="bike" formControlName="bike">
-          <option>ov-fiets</option>
-          <option>nextbike</option>
-          <option>mobike</option>
-          <option>donkey</option>
-        </select>
+            <!-- Bike -->
+            <div class="form-group">
+              <label for="bike">Bike</label>
+              <div class="select">
+                <select id="bike" formControlName="bike">
+                  <option>ov-fiets</option>
+                  <option>nextbike</option>
+                  <option>mobike</option>
+                  <option>donkey</option>
+                </select>
+              </div>
+            </div>
+            <!-- /Bike -->
+          </section>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary"
+                type="submit"
+                [disabled]="bookingForm.invalid">Book</button>
       </div>
     </div>
-    <!-- /Bike -->
-
-
-    <button class="btn btn-primary"
-            type="submit"
-            [disabled]="bookingForm.invalid">Book</button>
-  </section>
-</form>
+  </div>
+</div>
