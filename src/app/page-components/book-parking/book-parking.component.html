@@ -1,0 +1,61 @@
+<form class="form" [formGroup]="bookingForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+  <section class="form-block">
+    <label>Book your journey</label>
+    <!-- Start location -->
+    <div class="form-group">
+      <label for="from">From</label>
+      <label for="from"
+             aria-haspopup="true"
+             role="tooltip"
+             class="tooltip tooltip-validation tooltip-sm"
+             [class.invalid]="bookingForm.get('from').invalid
+                    && (bookingForm.get('from').dirty || bookingForm.get('from').touched)">
+        <input id="from" type="text"
+               formControlName="from">
+        <span class="tooltip-content">
+                    From is required.
+                </span>
+      </label>
+    </div> <!-- /Start location -->
+
+    <!-- To -->
+    <div class="form-group">
+      <label for="to">To</label>
+      <label for="to"
+             aria-haspopup="true"
+             role="tooltip"
+             class="tooltip tooltip-validation tooltip-sm"
+             [class.invalid]="bookingForm.get('to').invalid
+                    && (bookingForm.get('to').dirty || bookingForm.get('to').touched)">
+        <input id="to" type="text"
+               formControlName="to">
+        <span class="tooltip-content">
+                    To is required.
+                </span>
+      </label>
+    </div> <!-- /To -->
+
+
+    <!-- Time -->
+    <div class="form-group">
+      <label for="time">Time</label>
+      <label for="time"
+             aria-haspopup="true"
+             role="tooltip"
+             class="tooltip tooltip-validation tooltip-sm"
+             [class.invalid]="bookingForm.get('time').invalid
+                    && (bookingForm.get('time').dirty || bookingForm.get('time').touched)">
+        <input id="time" type="time"
+               formControlName="time">
+        <span class="tooltip-content">
+                    Time is required.
+                </span>
+      </label>
+    </div>  <!-- /Destination -->
+
+
+    <button class="btn btn-primary"
+            type="submit"
+            [disabled]="bookingForm.invalid">Book</button>
+  </section>
+</form>

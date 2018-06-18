@@ -20,12 +20,28 @@
     rxjs "^5.5.6"
     source-map "^0.5.6"
 
+"@angular-devkit/core@0.4.7":
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-0.4.7.tgz#c918d200d35eabe20660feb0b4f9bb145b016dba"
+  dependencies:
+    ajv "~5.5.1"
+    chokidar "^1.7.0"
+    rxjs "^5.5.8"
+    source-map "^0.5.6"
+
 "@angular-devkit/schematics@0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-0.3.2.tgz#09a2268fad61f4f956f42db87913b8748c512a78"
   dependencies:
     "@ngtools/json-schema" "^1.1.0"
     rxjs "^5.5.6"
+
+"@angular-devkit/schematics@0.4.7":
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-0.4.7.tgz#671eda6102bf80e580727f6979a6f30715872f73"
+  dependencies:
+    "@ngtools/json-schema" "^1.1.0"
+    rxjs "^5.5.8"
 
 "@angular/animations@^5.2.0":
   version "5.2.11"
@@ -239,6 +255,22 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
+"@clr/angular@0.11.14":
+  version "0.11.14"
+  resolved "https://registry.yarnpkg.com/@clr/angular/-/angular-0.11.14.tgz#650d2a84732603418d058e0a9e6ab9b084358ff3"
+  dependencies:
+    "@angular-devkit/core" "0.4.7"
+    "@angular-devkit/schematics" "0.4.7"
+    tslib "^1.7.1"
+
+"@clr/icons@0.11.14":
+  version "0.11.14"
+  resolved "https://registry.yarnpkg.com/@clr/icons/-/icons-0.11.14.tgz#0f339cf2bb61696c6c33ab9304b3b20e0a898d3f"
+
+"@clr/ui@0.11.14":
+  version "0.11.14"
+  resolved "https://registry.yarnpkg.com/@clr/ui/-/ui-0.11.14.tgz#7a71233267e02d868974c0efa7a705ecc85cc761"
+
 "@ngtools/json-schema@1.2.0", "@ngtools/json-schema@^1.1.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.2.0.tgz#06e5ecd29e9a37d260a447dd873ea2becd228c4f"
@@ -299,6 +331,10 @@
 "@types/strip-json-comments@0.0.30":
   version "0.0.30"
   resolved "https://registry.yarnpkg.com/@types/strip-json-comments/-/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
+
+"@webcomponents/custom-elements@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@webcomponents/custom-elements/-/custom-elements-1.0.0.tgz#b1726e12074b556aa31b93f36ff6a03a435259c4"
 
 abbrev@1:
   version "1.1.1"
@@ -5425,7 +5461,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@^5.5.6:
+rxjs@^5.5.6, rxjs@^5.5.8:
   version "5.5.11"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.11.tgz#f733027ca43e3bec6b994473be4ab98ad43ced87"
   dependencies:
