@@ -31,6 +31,7 @@ export class BookParkingComponent implements OnInit {
     this.bookingForm = new FormGroup({
       from: new FormControl('', Validators.required),
       to: new FormControl('', Validators.required),
+      departDate: new FormControl('', Validators.required),
       time: new FormControl('', Validators.required),
       bike: new FormControl('', Validators.required)
     });

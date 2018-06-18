@@ -122,6 +122,22 @@
               </label>
             </div> <!-- /To -->
 
+            <!-- Time -->
+            <div class="form-group">
+              <label for="departDate">Time</label>
+              <label for="departDate"
+                     aria-haspopup="true"
+                     role="tooltip"
+                     class="tooltip tooltip-validation tooltip-sm"
+                     [class.invalid]="bookingForm.get('departDate').invalid
+                    && (bookingForm.get('departDate').dirty || bookingForm.get('departDate').touched)">
+                <input id="departDate" type="date" formControlName="departDate" clrDate>
+                <span class="tooltip-content">
+                    Date is required.
+                </span>
+              </label>
+            </div>  <!-- /Destination -->
+
 
             <!-- Time -->
             <div class="form-group">
@@ -152,7 +168,7 @@
               <div class="alert-icon-wrapper">
                 <clr-icon class="alert-icon" shape="exclamation-triangle"></clr-icon>
               </div>
-              <span class="alert-text">Last train</span>
+              <span class="alert-text">Last train. The next train is available at 06:30.</span>
               <div class="alert-actions">
                 <a href="#" class="alert-action">See earlier times</a>
               </div>
