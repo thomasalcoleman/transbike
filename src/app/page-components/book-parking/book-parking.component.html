@@ -141,9 +141,45 @@
             </div>  <!-- /Destination -->
           </section>
       </div>
-      <div class="card-block">
+      <div class="card-block" *ngIf="bookingForm.get('time').touched">
         Walk 800m to Eindhoven station<br />
         Depart Eindhoven station, Platform 1 at 00:00
+      </div>
+      <div class="card-block" *ngIf="bookingForm.get('time').touched">
+        <div class="alert alert-warning" *ngIf="bookingForm.get('time').touched && bookingForm.get('time').value === '00:00'">
+          <div class="alert-items">
+            <div class="alert-item static">
+              <div class="alert-icon-wrapper">
+                <clr-icon class="alert-icon" shape="exclamation-triangle"></clr-icon>
+              </div>
+              <span class="alert-text">Last train</span>
+              <div class="alert-actions">
+                <a href="#" class="alert-action">See earlier times</a>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="close" aria-label="Close">
+            <clr-icon aria-hidden="true" shape="close"></clr-icon>
+          </button>
+        </div>
+
+
+        <div class="alert alert-info" *ngIf="bookingForm.get('time').touched && bookingForm.get('time').value !== '00:00'">
+          <div class="alert-items">
+            <div class="alert-item static">
+              <div class="alert-icon-wrapper">
+                <clr-icon class="alert-icon" shape="info-circle"></clr-icon>
+              </div>
+              <span class="alert-text">Later trains are available</span>
+              <div class="alert-actions">
+                <a href="#" class="alert-action">See more</a>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="close" aria-label="Close">
+            <clr-icon aria-hidden="true" shape="close"></clr-icon>
+          </button>
+        </div>
       </div>
       <!--<div class="card-footer">-->
         <!--<button class="btn btn-primary"-->
