@@ -1,0 +1,15 @@
+.main-container {
+    background-color: #2EAFCF;
+}
+
+/deep/ .card-header {
+     background-color: #efefef;
+}
+
+ /deep/ .card, /deep/ .card-header {
+     border-radius: 4px 4px;
+ }
+
+/deep/ h1, /deep/ h4, /deep/ .card-header, /deep/ .card .card-title {
+    font-family: Futura;
+}

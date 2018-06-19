@@ -1,8 +1,17 @@
-<h4>Booking confirmation</h4><br />
-
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<div class="row">
+  <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        Booking confirmation
+      </div>
+      <div class="card-block">
+        <agm-map [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
@@ -22,9 +31,15 @@
   </div>
 </div>
 
-
+<div class="row">
+  <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        Directions
+      </div>
+      <div class="card-block">
 <clr-stack-view>
-  <clr-stack-header>Directions</clr-stack-header>
+  <!--<clr-stack-header>Directions</clr-stack-header>-->
 
   <clr-stack-block [clrSbExpanded]="true">
     <clr-stack-label>Walk</clr-stack-label>
@@ -50,3 +65,7 @@
     </clr-stack-block>
   </clr-stack-block>
 </clr-stack-view>
+      </div>
+    </div>
+  </div>
+</div>
