@@ -231,7 +231,7 @@
               [latitude]="bikePin.lat"
               [longitude]="bikePin.lng"
               (markerClick)="markerClicked(i)"
-              [iconUrl]="bikePin.type === 'ov-fiets' ? '/assets/ovbike-logo-thumb.png' : '/assets/transbike-logo.png'"
+              [iconUrl]="bikePin.type === 'ov-fiets' ? '/assets/ov-fiets-thumb.png' : '/assets/transbike-logo.png'"
           ></agm-marker>
         </agm-map>
       </div>
@@ -267,7 +267,7 @@
       <div class="card-footer">
         <button class="btn btn-primary"
                 type="submit"
-                [disabled]="bookingForm.invalid">Book</button>
+                [disabled]="bookingForm.invalid">Confirm</button>
       </div>
     </div>
   </div>
@@ -287,6 +287,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="modalOpened = false">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="modalOpened = false; confirmModal()">Ok</button>
+    <button type="button" class="btn btn-primary" (click)="modalOpened = false; confirmModal()">Confirm</button>
   </div>
 </clr-modal>

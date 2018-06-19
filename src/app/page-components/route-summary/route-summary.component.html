@@ -7,6 +7,10 @@
       <div class="card-block">
         <agm-map [latitude]="lat" [longitude]="lng">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          <ng-container *ngFor="let plan of (routes | async)?.planning">
+            <agm-data-layer *ngIf="plan.source === 'google'" [geoJson]="plan.routes[0].overview_polyline.points"></agm-data-layer>
+          </ng-container>
+
         </agm-map>
       </div>
     </div>
@@ -38,34 +42,45 @@
         Directions
       </div>
       <div class="card-block">
-<clr-stack-view>
-  <!--<clr-stack-header>Directions</clr-stack-header>-->
+        <clr-stack-view *ngFor="let plan of (routes | async)?.planning">
+          <!--<clr-stack-header>Directions</clr-stack-header>-->
 
-  <clr-stack-block [clrSbExpanded]="true">
-    <clr-stack-label>Walk</clr-stack-label>
-    <clr-stack-content>12:00 - 13:00</clr-stack-content>
+          <clr-stack-block *ngIf="plan.source === '9292'">
+            <clr-stack-label>9292 Train</clr-stack-label>
 
-    <clr-stack-block>
-      <clr-stack-label>Walk from Street to Street</clr-stack-label>
-      <clr-stack-content>13:00 - 13:05</clr-stack-content>
-    </clr-stack-block>
+            <clr-stack-block>
+              <clr-stack-label>Destination</clr-stack-label>
+              <clr-stack-content>{{ plan.legs[0].Destination }}</clr-stack-content>
+            </clr-stack-block>
 
-    <clr-stack-block>
-      <clr-stack-label>Walk from Street to Street</clr-stack-label>
-      <!--<clr-stack-content>Walk from other street to station</clr-stack-content>-->
-    </clr-stack-block>
-  </clr-stack-block>
+            <clr-stack-block>
+              <clr-stack-label>Departure platform</clr-stack-label>
+              <clr-stack-content>{{ plan.legs[0].DeparturePlatform }}</clr-stack-content>
+            </clr-stack-block>
 
-  <clr-stack-block>
-    <clr-stack-label>Train</clr-stack-label>
-    <clr-stack-content>13:00 - 14:00</clr-stack-content>
+            <clr-stack-block>
+              <clr-stack-label>Arrival platform</clr-stack-label>
+              <clr-stack-content>{{ plan.legs[0].ArrivalPlatform }}</clr-stack-content>
+            </clr-stack-block>
 
-    <clr-stack-block>
-      <clr-stack-label>Get train to Blah station</clr-stack-label>
-    </clr-stack-block>
-  </clr-stack-block>
-</clr-stack-view>
+            <clr-stack-block>
+              <clr-stack-label>Departure time</clr-stack-label>
+              <clr-stack-content>{{ plan.legs[0].DepartureTime }}</clr-stack-content>
+            </clr-stack-block>
+          </clr-stack-block>
+
+          <clr-stack-block *ngIf="plan.source === 'google'">
+              <clr-stack-label>{{ plan.routes[0].legs[0].steps[0].travel_mode }}</clr-stack-label>
+              <!--<clr-stack-content>12:00 - 13:00</clr-stack-content>-->
+
+              <clr-stack-block  *ngFor="let step of plan.routes[0].legs[0].steps">
+                <clr-stack-label [innerHTML]="step.html_instructions"></clr-stack-label>
+                <clr-stack-content>{{ step.duration.text }} ({{step.distance.text }})</clr-stack-content>
+              </clr-stack-block>
+          </clr-stack-block>
+        </clr-stack-view>
       </div>
     </div>
   </div>
 </div>
+

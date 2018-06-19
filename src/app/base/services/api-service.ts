@@ -25,11 +25,12 @@ export class ApiService {
     });
   }
 
-  public getRoute(origin: string, destination: string): Observable<Object> {
-    return this.httpClient.get(environment.apiUrl + '/hacktrain/plan', {
+  public getRoute(origin: string, destination: string, timestamp: string): Observable<Object> {
+    return this.httpClient.get(environment.apiUrl + '/hackatrain/plan', {
       params: {
         origin,
-        destination
+        destination,
+        timestamp
       }
     });
   }
