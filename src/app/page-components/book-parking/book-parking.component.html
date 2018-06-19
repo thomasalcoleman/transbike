@@ -216,10 +216,10 @@
       <div class="card-block">
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14" [mapTypeControlOptions]="mapTypeControlOptions">
           <agm-marker
-              *ngFor="let bikePin of bikePinLocations"
+              *ngFor="let bikePin of bikePinLocations; let i = index"
               [latitude]="bikePin.lat"
               [longitude]="bikePin.lng"
-              (markerClick)="markerClicked($event)"
+              (markerClick)="markerClicked(i)"
           ></agm-marker>
         </agm-map>
       </div>
@@ -254,3 +254,20 @@
   </div>
 </div>
 </form>
+
+<clr-modal [(clrModalOpen)]="modalOpened" [clrModalSize]="'sm'" *ngIf="this.chosenModalLocation">
+  <h3 class="modal-title">{{ this.chosenModalLocation.type }} information</h3>
+  <div class="modal-body">
+    <ul>
+      <li *ngIf="this.chosenModalLocation.type === 'ov-fiets'">Bike needs to be returned within 24 hours</li>
+      <li *ngIf="this.chosenModalLocation.type === 'nextbike'">Bike is free float</li>
+      <li *ngIf="this.chosenModalLocation.type === 'ov-fiets'">Rental fee is €3,85 per 24h</li>
+      <li *ngIf="this.chosenModalLocation.type === 'nextbike'">Rental fee is €1,50 per 30m</li>
+    </ul>
+    <p>Do you want to rent this bike?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="modalOpened = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="modalOpened = false; confirmModal()">Ok</button>
+  </div>
+</clr-modal>

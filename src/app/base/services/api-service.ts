@@ -15,7 +15,6 @@ export class ApiService {
   }
 
   public getBikesAroundLocation(): Observable<Array<IBikeLocation>> {
-      // https://openbike.nl/api/cycles?ne_lat=50.87815728013861
     return this.httpClient.get<Array<IBikeLocation>>(environment.apiUrl + '/cycles', {
       params: {
           sw_lng: '5.621173805884379',
@@ -27,7 +26,7 @@ export class ApiService {
   }
 
   public getRoute(origin: string, destination: string): Observable<Object> {
-    return this.httpClient.get(environment.apiUrl, {
+    return this.httpClient.get(environment.apiUrl + '/hacktrain/plan', {
       params: {
         origin,
         destination

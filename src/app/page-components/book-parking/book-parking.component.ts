@@ -20,12 +20,22 @@ export class BookParkingComponent implements OnInit {
   lat: number = 50.8497109;
   lng: number = 5.7051957;
 
-  public bikePinLocations = [{
+  public modalOpened: boolean = false;
+
+  public chosenModalLocation = null;
+
+  public bikePinLocations: Array<{
+    lat: number;
+    lng: number;
+    type: string;
+  }> = [{
     lat: 50.8497034,
-    lng: 5.7009666
+    lng: 5.7009666,
+    type: 'ov-fiets'
   }, {
     lat: 50.850036,
-    lng: 5.7048523
+    lng: 5.7048523,
+    type: 'ov-fiets'
   }];
 
   public mapTypeControlOptions = {
@@ -40,15 +50,13 @@ export class BookParkingComponent implements OnInit {
     this.bikePinLocations = [];
 
     this.apiService.getBikesAroundLocation().subscribe((response) => {
-      console.log(response);
       response.forEach((location) => {
         this.bikePinLocations.push({
             lng: location.longitude,
-            lat: location.latitude
+            lat: location.latitude,
+            type: location.systemId === 'ovfiets' ? 'ov-fiets' : 'nextbike'
         });
       });
-
-      console.log(this.bikePinLocations);
     });
 
     this.bookingForm = new FormGroup({
@@ -60,12 +68,28 @@ export class BookParkingComponent implements OnInit {
     });
   }
 
-  public markerClicked () {
+  public markerClicked(itemIndex) {
+    this.chosenModalLocation = this.bikePinLocations[itemIndex];
+      console.log(itemIndex, this.chosenModalLocation);
+
+      console.log(this.bikePinLocations[itemIndex]);
+
+    this.modalOpened = true;
       // this.markerClicked
   }
 
-  public onSubmit(event) {
-    event.preventDefault();
+  public confirmModal(): void {
+    this.bookingForm.controls.bike.setValue(this.chosenModalLocation.type);
+
+    if (this.bookingForm.valid) {
+      this.onSubmit();
+    }
+  }
+
+  public onSubmit(event?) {
+    if (event) {
+        event.preventDefault();
+    }
 
     this.isSubmitting = true;
 
