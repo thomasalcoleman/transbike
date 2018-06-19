@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://openbike.n/api/hackatrain/plan'
+  apiUrl: 'https://openbike.nl/api'
 };

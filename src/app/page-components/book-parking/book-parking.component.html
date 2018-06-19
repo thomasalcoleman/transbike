@@ -214,8 +214,13 @@
       </div>
 
       <div class="card-block">
-        <agm-map [latitude]="lat" [longitude]="lng">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14" [mapTypeControlOptions]="mapTypeControlOptions">
+          <agm-marker
+              *ngFor="let bikePin of bikePinLocations"
+              [latitude]="bikePin.lat"
+              [longitude]="bikePin.lng"
+              (markerClick)="markerClicked($event)"
+          ></agm-marker>
         </agm-map>
       </div>
 
