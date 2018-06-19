@@ -46,6 +46,15 @@ export class BookParkingComponent implements OnInit {
 
   constructor(private apiService: ApiService, private router: Router) {}
 
+  public get shouldDisplayTrainInfo(): boolean {
+      const fromValid: boolean = this.bookingForm.get('from').value !== '' && this.bookingForm.get('from').dirty;
+      const toValid: boolean = this.bookingForm.get('to').value !== '' && this.bookingForm.get('to').dirty;
+      const timeValid: boolean = this.bookingForm.get('time').value !== '' && this.bookingForm.get('time').dirty;
+      const dateValid: boolean = this.bookingForm.get('departDate').value !== '';
+
+      return fromValid && toValid && timeValid && dateValid;
+  }
+
   public ngOnInit(): void {
     this.bikePinLocations = [];
 
@@ -62,7 +71,7 @@ export class BookParkingComponent implements OnInit {
     this.bookingForm = new FormGroup({
       from: new FormControl('', Validators.required),
       to: new FormControl('', Validators.required),
-      departDate: new FormControl('', Validators.required),
+      departDate: new FormControl('19/06/2018', Validators.required),
       time: new FormControl('', Validators.required),
       bike: new FormControl('', Validators.required)
     });
@@ -70,9 +79,6 @@ export class BookParkingComponent implements OnInit {
 
   public markerClicked(itemIndex) {
     this.chosenModalLocation = this.bikePinLocations[itemIndex];
-      console.log(itemIndex, this.chosenModalLocation);
-
-      console.log(this.bikePinLocations[itemIndex]);
 
     this.modalOpened = true;
       // this.markerClicked

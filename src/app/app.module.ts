@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,10 @@ import { RouteSummaryModule } from './page-components/route-summary/route-summar
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import localeFr from '@angular/common/locales/en-GB';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localeFr, 'en-GB');
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BaseModule,
     AgmCoreModule.forRoot()
   ],
-  providers: [],
+  providers: [
+      { provide: LOCALE_ID, useValue: 'en-GB' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

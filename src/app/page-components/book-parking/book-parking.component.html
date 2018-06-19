@@ -97,8 +97,11 @@
                      class="tooltip tooltip-validation tooltip-sm"
                      [class.invalid]="bookingForm.get('from').invalid
                     && (bookingForm.get('from').dirty || bookingForm.get('from').touched)">
-                <input id="from" type="text"
-                       formControlName="from">
+                <input
+                  id="from"
+                  type="text"
+                  formControlName="from"
+                  placeholder="Starting location">
                 <span class="tooltip-content">
                     From is required.
                 </span>
@@ -115,7 +118,8 @@
                      [class.invalid]="bookingForm.get('to').invalid
                     && (bookingForm.get('to').dirty || bookingForm.get('to').touched)">
                 <input id="to" type="text"
-                       formControlName="to">
+                       formControlName="to"
+                       placeholder="Destination">
                 <span class="tooltip-content">
                     To is required.
                 </span>
@@ -131,7 +135,7 @@
                      class="tooltip tooltip-validation tooltip-sm"
                      [class.invalid]="bookingForm.get('departDate').invalid
                     && (bookingForm.get('departDate').dirty || bookingForm.get('departDate').touched)">
-                <input id="departDate" type="date" formControlName="departDate" clrDate>
+                <input id="departDate" type="date" formControlName="departDate" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" clrDate>
                 <span class="tooltip-content">
                     Date is required.
                 </span>
@@ -157,12 +161,12 @@
             </div>  <!-- /Destination -->
           </section>
       </div>
-      <div class="card-block" *ngIf="bookingForm.get('time').touched">
+      <div class="card-block" *ngIf="shouldDisplayTrainInfo">
         Walk 800m to Eindhoven station<br />
         Depart Eindhoven station, Platform 1 at 00:00
       </div>
-      <div class="card-block" *ngIf="bookingForm.get('time').touched">
-        <div class="alert alert-warning" *ngIf="bookingForm.get('time').touched && bookingForm.get('time').value === '00:00'">
+      <div class="card-block" *ngIf="shouldDisplayTrainInfo">
+        <div class="alert alert-warning" *ngIf="bookingForm.get('time').value === '00:00'">
           <div class="alert-items">
             <div class="alert-item static">
               <div class="alert-icon-wrapper">
@@ -180,7 +184,7 @@
         </div>
 
 
-        <div class="alert alert-info" *ngIf="bookingForm.get('time').touched && bookingForm.get('time').value !== '00:00'">
+        <div class="alert alert-info" *ngIf="bookingForm.get('time').value !== '00:00'">
           <div class="alert-items">
             <div class="alert-item static">
               <div class="alert-icon-wrapper">
@@ -210,10 +214,17 @@
   <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
-        Choose your bike
+        Choose your bike <a href="#" role="tooltip" aria-haspopup="true" class="tooltip tooltip-sm tooltip-bottom-left">
+        <clr-icon shape="info-circle" size="24"></clr-icon>
+        <span class="tooltip-content">Choose a bike, for the last mile of your journey</span>
+      </a>
       </div>
 
       <div class="card-block">
+        <div class="card-text">
+          Find a bike below, and click on it to view the details.
+        </div>
+
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14" [mapTypeControlOptions]="mapTypeControlOptions">
           <agm-marker
               *ngFor="let bikePin of bikePinLocations; let i = index"
@@ -225,6 +236,13 @@
       </div>
 
       <div class="card-block">
+        <div class="card-title">
+          Choose type of bike
+        </div>
+        <div class="card-text">
+          Choosing a bike will choose the nearest bike.
+          If you want to choose a specific one, use the map above.
+        </div>
         <!-- Bike -->
         <div class="form-group">
           <label for="bike">Bike</label>
