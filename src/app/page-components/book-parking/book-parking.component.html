@@ -231,6 +231,7 @@
               [latitude]="bikePin.lat"
               [longitude]="bikePin.lng"
               (markerClick)="markerClicked(i)"
+              [iconUrl]="bikePin.type === 'ov-fiets' ? '/assets/ovbike-logo-thumb.png' : '/assets/transbike-logo.png'"
           ></agm-marker>
         </agm-map>
       </div>
