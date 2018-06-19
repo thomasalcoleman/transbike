@@ -2,15 +2,13 @@
   <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
     <div class="card">
       <div class="card-header">
-        Booking confirmation
+        Route map
       </div>
       <div class="card-block">
         <agm-map [latitude]="lat" [longitude]="lng">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-          <ng-container *ngFor="let plan of (routes | async)?.planning">
-            <agm-data-layer *ngIf="plan.source === 'google'" [geoJson]="plan.routes[0].overview_polyline.points"></agm-data-layer>
-          </ng-container>
-
+          <agm-polyline [strokeColor]="'#2EAFCF'" [strokeWeight]="5">
+            <agm-polyline-point *ngFor="let point of mapPolylines" [latitude]="point[0]" [longitude]="point[1]"></agm-polyline-point>
+          </agm-polyline>
         </agm-map>
       </div>
     </div>
@@ -23,8 +21,8 @@
       <div class="card-header">
         Ticket details
       </div>
-      <div class="card-block">
-        <div class="card-title">
+      <div class="card-block ticket-number">
+        <div class="card-title ticket-number">
           57917831
         </div>
         <div class="card-text">

@@ -29,7 +29,9 @@ registerLocaleData(localeFr, 'en-GB');
     BookParkingModule,
     RouteSummaryModule,
     BaseModule,
-    AgmCoreModule.forRoot()
+    AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyAnuw-Y9AxyMKkIfel5oTlZ-DhJ0M6BUlY'
+    })
   ],
   providers: [
       { provide: LOCALE_ID, useValue: 'en-GB' }
